@@ -19,13 +19,13 @@ onMounted(() => {
 
 <template>
   <div class="sm:ml-4">
-    <div class="px-32 rounded-lg dark:border-gray-700 mt-14">
+    <div class="lg:px-32 px-8 rounded-lg dark:border-gray-700 mt-14">
       <section v-for="([key, project], index) in projects" :key="index" :id="'project-' + index" class="py-16">
         <div class="text-white space-y-1 mb-6">
           <span class="text-accent text-sm">{{ project.category }}</span>
           <h1 class="text-4xl font-bold">{{ project.title }}</h1>
         </div>
-        <div class="md:grid grid-cols-2 gap-4 mb-4">
+        <div class="md:grid md:space-y-0 space-y-3 grid-cols-2 gap-4 mb-4">
           <figure class="col-span-2 rounded-lg overflow-hidden">
             <div>
               <img
@@ -34,7 +34,7 @@ onMounted(() => {
                 class="rounded-lg overflow-hidden"
               />
             </div>
-            <figcaption class="text-white mt-2 font-thin">{{ project.images[0].description }}</figcaption>
+            <figcaption class="text-white md:mt-2 mt-0.5 font-thin">{{ project.images[0].description }}</figcaption>
           </figure>
           <figure
             class="flex flex-col h-full rounded-lg"
@@ -48,10 +48,10 @@ onMounted(() => {
                 class="project-image h-full"
               />
             </div>
-            <figcaption class="text-white mt-2 font-thin">{{ image.description }}</figcaption>
+            <figcaption class="text-white md:mt-2 mt-0.5 font-thin">{{ image.description }}</figcaption>
           </figure>
         </div>
-        <div class="text-white grid grid-cols-4 gap-y-6 mt-10">
+        <div class="text-white md:grid md:space-y-0 space-y-3 grid-cols-4 gap-y-6 mt-10">
           <div>
             <span class="text-lg font-thin">Descripción</span>
           </div>

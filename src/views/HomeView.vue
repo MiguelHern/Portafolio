@@ -7,6 +7,8 @@ let title = ref('')
 let description = ref('')
 let images = ref([])
 
+const projects = Object.entries(carouselData)
+
 const switchData = (projectName) => {
   const project = carouselData[projectName]
   if (project) {
@@ -16,7 +18,7 @@ const switchData = (projectName) => {
     images.value = project.images.map((image) => image.url)
   }
 }
-import { useRouter } from 'vue-router'  // Importa useRouter
+import { useRouter } from 'vue-router' // Importa useRouter
 const router = useRouter()
 const goToProject = (projectId) => {
   router.push(`/portfolio#project-${projectId}`)
@@ -26,9 +28,14 @@ const goToProject = (projectId) => {
 <template>
   <section class="flex h-screen relative">
     <div class="absolute w-full h-full origin-center clip-hole"></div>
-    <div class="space-y-3 absolute bottom-20 left-20 text-white">
+    <div
+      data-aos="fade-in"
+      class="space-y-3 absolute lg:bottom-20 lg:left-20 flex lg:w-auto w-full justify-center bottom-20 text-white blur-sm-ao-lg"
+    >
+    <div class="lg:text-start text-center">
       <span class="text-lg"> Miguel Hernández </span>
       <h1 class="text-3xl">Programador Web</h1>
+
       <div class="flex gap-3">
         <span>Lenguajes</span>
         <div>
@@ -42,6 +49,8 @@ const goToProject = (projectId) => {
         </div>
       </div>
     </div>
+
+    </div>
     <iframe
       src="https://my.spline.design/particles-a315ecf81b2793f51b19320584572ddf/"
       frameborder="0"
@@ -50,18 +59,17 @@ const goToProject = (projectId) => {
     ></iframe>
   </section>
 
-  <section class="text-white px-16 py-24">
+  <section class="text-white px-8 md:px-16 py-12 md:py-24">
     <header>
-      <h2 id="" data-aos="fade-in" class="text-3xl blur-sm-ao ">Resumen</h2>
-      <p >
+      <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-4 text-center">Resumen</h2>
+      <p data-aos="fade-in">
         Soy ingeniero en sistemas computacionales con experiencia en desarrollo frontend utilizando
         Vue.js y TypeScript. También cuento con habilidades en backend, trabajando con tecnologías
         como Python y PHP, lo que me permite desarrollar soluciones completas y funcionales.
       </p>
-
     </header>
-    <main class="mt-16">
-      <ul grid grid-cols-3 >
+    <main class="md:mt-16 mt-8">
+      <ul grid grid-cols-3>
         <li class="grid grid-cols-5" data-aos="fade-up">
           <div class="md:col-span-2 col-span-5"><span>Frontend</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
@@ -74,7 +82,7 @@ const goToProject = (projectId) => {
             </ul>
           </div>
         </li>
-        <li class="grid grid-cols-5" data-aos="fade-up">
+        <li class="grid grid-cols-5 md:mt-0 mt-4" data-aos="fade-up">
           <div class="col-span-2"><span>Backend</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
             <ul class="text-xl flex flex-wrap gap-5 py-6">
@@ -85,7 +93,7 @@ const goToProject = (projectId) => {
             </ul>
           </div>
         </li>
-        <li class="grid grid-cols-5" data-aos="fade-up">
+        <li class="grid grid-cols-5 md:mt-0 mt-4" data-aos="fade-up">
           <div class="col-span-2"><span>Herramientas</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
             <ul class="text-xl flex flex-wrap gap-5 py-6">
@@ -100,12 +108,12 @@ const goToProject = (projectId) => {
     </main>
   </section>
 
-  <section class="text-white px-16 py-24 bg-bgsecondary">
+  <section class="text-white px-16 py-24 bg-bgsecondary hidden md:block">
     <header>
-      <h2  id="" data-aos="fade-in" class="text-3xl blur-sm-ao ">Proyectos</h2>
+      <h2 id="" data-aos="fade-in" class="text-3xl blur-sm-ao text-center">Proyectos</h2>
     </header>
     <main class="mt-16 grid grid-cols-5 h-full">
-      <div class="col-span-2 mr-32 items-center hidden sm:flex h-[720px]">
+      <div class="md:col-span-2 flex h-[720px] mr-24 items-center">
         <transition
           name="fade"
           enter-active-class="transition-opacity duration-500 ease-in-out"
@@ -116,31 +124,61 @@ const goToProject = (projectId) => {
           leave-to-class="opacity-0 translate-y-4"
         >
           <div v-if="title">
-            <CardProjectsHome :title="title" :description="description" :images="images" />
+            <CardProjectsHome
+              :title="title"
+              :description="description"
+              :images="images"
+              :controls="false"
+            />
           </div>
         </transition>
       </div>
 
-      <div
-        class="col-span-5 md:col-span-3 md:justify-start justify-center flex items-center sm:translate-x-0"
-      >
+      <div class="col-span-3 self-center">
         <ul class="space-y-12 text-6xl lista">
-          <li data-aos="fade-up" class="item transition-all duration-300 ease-in-out md:text-start text-center">
-            <button @mouseover="switchData('FisioLab')" @mouseleave="switchData('')" @click="goToProject(0)" class="">
+          <li
+            data-aos="fade-up"
+            class="item transition-all duration-300 ease-in-out md:text-start text-center"
+          >
+            <button
+              @mouseover="switchData('FisioLab')"
+              @mouseleave="switchData('')"
+              @click="goToProject(0)"
+              class=""
+            >
               FisioLabs
             </button>
           </li>
-          <li data-aos="fade-up" class="item transition-all duration-300 ease-in-out md:text-start text-center">
-            <button @mouseover="switchData('General10')" @mouseleave="switchData('')" @click="goToProject(1)" class="">
+          <li
+            data-aos="fade-up"
+            class="item transition-all duration-300 ease-in-out md:text-start text-center"
+          >
+            <button
+              @mouseover="switchData('General10')"
+              @mouseleave="switchData('')"
+              @click="goToProject(1)"
+              class=""
+            >
               General10
             </button>
           </li>
-          <li data-aos="fade-up" class="item transition-all duration-300 ease-in-out md:text-start text-center">
-            <button @mouseover="switchData('WriteScore')" @mouseleave="switchData('')" @click="goToProject(2)" class="">
+          <li
+            data-aos="fade-up"
+            class="item transition-all duration-300 ease-in-out md:text-start text-center"
+          >
+            <button
+              @mouseover="switchData('WriteScore')"
+              @mouseleave="switchData('')"
+              @click="goToProject(2)"
+              class=""
+            >
               Habitify - Clon
             </button>
           </li>
-          <li data-aos="fade-up" class="item transition-all duration-300 ease-in-out md:text-start text-center">
+          <li
+            data-aos="fade-up"
+            class="item transition-all duration-300 ease-in-out md:text-start text-center"
+          >
             <button @mouseover="switchData('WriteScore')" @mouseleave="switchData('')" class="">
               WriteScore
             </button>
@@ -148,6 +186,25 @@ const goToProject = (projectId) => {
         </ul>
       </div>
     </main>
+  </section>
+  <section class="py-16 px-8 text-white">
+    <h2 id="" data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-center">Proyectos</h2>
+    <div
+      v-for="([key, project], index) in projects"
+      :key="key"
+      :id="'project-' + key"
+      class="mb-4"
+      data-aos="fade-up"
+    >
+      <div>
+        <CardProjectsHome
+          :title="project.title"
+          :description="project.description"
+          :images="project.images.map((image) => image.url)"
+          :controls="false"
+        />
+      </div>
+    </div>
   </section>
 </template>
 <style scoped>
@@ -170,10 +227,23 @@ const goToProject = (projectId) => {
 }
 .blur-sm-ao {
   filter: blur(10px);
-  transition: filter 0.5s ease-in-out; /* Transición suave para el desenfoque */
+  transition: filter 0.5s ease-in-out;
 }
 
 .aos-animate {
   filter: blur(0);
+}
+.blur-sm-ao-lg {
+  filter: blur(10px); /* Desenfoque inicial */
+  animation: revealBlur 1s ease-out forwards; /* Animación de revelado */
+}
+
+@keyframes revealBlur {
+  0% {
+    filter: blur(30px);
+  }
+  100% {
+    filter: blur(0);
+  }
 }
 </style>
