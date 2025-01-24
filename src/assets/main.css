@@ -1,0 +1,14 @@
+@import './base.css';
+@import './fonts/style.css';
+
+body {
+  @apply bg-black;
+}
+.blur-sm-ao {
+  filter: blur(10px);
+  transition: filter 1s ease-in-out; /* Transición suave para el desenfoque */
+}
+
+.aos-animate {
+  filter: blur(0);
+}
