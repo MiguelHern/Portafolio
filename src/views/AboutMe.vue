@@ -1,8 +1,9 @@
 <script setup></script>
 
 <template>
+  <h2 data-aos="fade-in" class="text-3xl blur-sm-ao p-4 text-center text-white font-thin">Acerca de mi</h2>
   <div class="sm:ml-4">
-    <div class="px-8 py-6 rounded-lg dark:border-gray-700 mt-14 text-white">
+    <div class="px-8 py-6 rounded-lg dark:border-gray-700 md:mt-14 text-white">
       <section>
         <p class="mb-6 text-lg leading-relaxed">
           ¡Hola! Soy Miguel Hernández, un desarrollador de software con pasión por crear soluciones innovadoras. Me especializo en desarrollo web, y me encanta trabajar con tecnologías como Vue 3, Tailwind CSS y JavaScript. Mi objetivo es construir aplicaciones que no solo sean funcionales, sino también intuitivas y visualmente atractivas.
