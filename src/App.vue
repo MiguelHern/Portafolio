@@ -1,6 +1,6 @@
 <script setup>
 import HeaderLayout from './components/HeaderLayout.vue'
-import SidebarLayout from './components/SidebarLayout.vue'
+//import SidebarLayout from './components/SidebarLayout.vue'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,7 +22,7 @@ onMounted(() => {
   <header>
     <HeaderLayout />
   </header>
-
+  <!--
   <aside
     id="logo-sidebar"
     class="fixed top-0 left-0 z-40 h-screen pt-24 transition-transform -translate-x-full lg:translate-x-0"
@@ -30,7 +30,8 @@ onMounted(() => {
   >
     <SidebarLayout />
   </aside>
-  <div class="lg:ml-44 ml-0 blur-sm-ao" data-aos="fade-in">
+  -->
+  <div class="blur-sm-ao" data-aos="fade-in">
     <div class="">
       <RouterView />
     </div>

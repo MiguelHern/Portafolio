@@ -35,7 +35,7 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
 </script>
 <template>
   <div
-    class="fixed inset-0 bg-crema bg-opacity-10 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden"
+    class="fixed inset-0 bg-primary bg-opacity-10 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden"
     :class="backgroundClass"
     @click="closeModal"
   ></div>
@@ -73,7 +73,7 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
       </div>
     </div>
   </div>
-  <nav class="fixed top-0 z-50 w-full ml-24" id="" data-aos="fade-down" >
+  <nav class="fixed top-0 z-50 w-full" id="" data-aos="fade-down" >
     <!--lign-items: center;
 
         border-radius: 1rem;

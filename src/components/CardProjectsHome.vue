@@ -42,7 +42,6 @@
     </div>
   </div>
   <div class="md:mt-10 mt-4 space-y-3">
-    <h4 class="text-xl font-bold hidden md:block">{{ title }}</h4>
     <p class="text-md">{{ description }}</p>
   </div>
 </template>

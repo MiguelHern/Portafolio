@@ -18,14 +18,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <h2 data-aos="fade-in" class="text-3xl blur-sm-ao p-4 text-center text-white font-thin">Proyectos</h2>
+  <h2 data-aos="fade-in" class="text-3xl blur-sm-ao p-4 text-center text-white font-thin mt-14">Proyectos</h2>
   <div class="sm:ml-4">
     <div class="lg:px-32 px-8 rounded-lg dark:border-gray-700">
       <section
         v-for="([key, project], index) in projects"
         :key="index"
         :id="'project-' + index"
-        class="md:py-16 py-4"
+        class="lg:py-8 py-4"
       >
         <div class="text-white space-y-1 mb-6">
           <span class="text-accent text-sm">{{ project.category }}</span>
