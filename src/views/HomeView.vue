@@ -39,7 +39,7 @@ const goToProject = (projectId) => {
       class="space-y-3 absolute lg:bottom-20 lg:left-20 flex lg:w-auto w-full justify-center bottom-20 text-white blur-sm-ao-lg"
     >
       <div class="lg:text-start text-center">
-        <span class="text-lg"> Miguel Hernández </span>
+        <span class="text-lg font-thin"> Miguel Hernández </span>
         <h1 class="text-3xl mb-3">Programador <span class="text-primary">Web</span></h1>
 
         <ul class="flex gap-3 lg:justify-start justify-center">

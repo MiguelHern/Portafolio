@@ -37,7 +37,9 @@
             >
               <div class="flex flex-col text-center gap-3">
                 <span class="max-w-xl font-thin">{{ project.shortDescription }}</span>
-                <div class="font-bold text-lg flex text-center justify-center items-center gap-3 hover:stroke-primary hover:text-primary transition-all duration-300 ease-in-out">
+                <div
+                  class="font-bold text-lg flex text-center justify-center items-center gap-3 hover:stroke-primary hover:text-primary transition-all duration-300 ease-in-out"
+                >
                   Ver proyecto
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -61,44 +63,40 @@
               :alt="project.images[0].description"
               class="w-full rounded-lg shadow-md border border-primary cursor-pointer"
             />
-
           </div>
-
         </div>
-
       </div>
       <button
-      @click="prev"
-      class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-950 border border-primary stroke-primary text-white p-2 rounded-full"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="3"
-        class="size-5"
+        @click="prev"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-950 border border-primary stroke-primary text-white p-2 rounded-full"
       >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-    </button>
-    <button
-      @click="next"
-      class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-950 border border-primary stroke-primary p-2 rounded-full"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="3"
-        class="size-5"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          class="size-5"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button
+        @click="next"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-950 border border-primary stroke-primary p-2 rounded-full"
       >
-        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
-    </button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          class="size-5"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
     </div>
 
     <!-- Botones de navegación -->
-
   </div>
 </template>
 
