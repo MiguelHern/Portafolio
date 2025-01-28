@@ -58,11 +58,6 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
               >Portafolio</RouterLink
             >
           </li>
-          <li class="">
-            <RouterLink class="item transition-all duration-300 ease-in-out" to="/aboutme" @click="openMenu"
-              >Acerca de mi</RouterLink
-            >
-          </li>
           <li>
             <button class="item transition-all duration-300 ease-in-out" @click="closeModal">LinkedIn</button>
           </li>
@@ -99,12 +94,10 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
         <li class="item transition-all duration-300 ease-in-out">
           <RouterLink to="/portfolio">Portafolio</RouterLink>
         </li>
-        <li class="item transition-all duration-300 ease-in-out">
-          <RouterLink to="/aboutme">Acerca de mi</RouterLink>
-        </li>
       </ul>
     </div>
   </nav>
+
 
   <button
     @click="openMenu"

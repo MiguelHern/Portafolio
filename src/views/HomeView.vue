@@ -28,7 +28,6 @@ const router = useRouter()
 const goToProject = (projectId) => {
   router.push(`/portfolio#project-${projectId}`)
 }
-
 </script>
 
 <template>
@@ -36,11 +35,11 @@ const goToProject = (projectId) => {
     <div class="absolute w-full h-full origin-center clip-hole"></div>
     <div
       data-aos="fade-in"
-      class="space-y-3 absolute lg:bottom-20 lg:left-20 flex lg:w-auto w-full justify-center bottom-20 text-white blur-sm-ao-lg"
+      class="space-y-3 absolute lg:bottom-20 lg:left-64 flex lg:w-auto w-full justify-center bottom-20 text-white blur-sm-ao-lg"
     >
       <div class="lg:text-start text-center">
-        <span class="text-lg font-thin"> Miguel Hernández </span>
-        <h1 class="text-3xl mb-3">Programador <span class="text-primary">Web</span></h1>
+        <span class="text-xl font-thin"> Miguel Hernández </span>
+        <h1 class="text-4xl mb-3">Programador <span class="text-primary">Web</span></h1>
 
         <ul class="flex gap-3 lg:justify-start justify-center">
           <li>
@@ -101,8 +100,14 @@ const goToProject = (projectId) => {
             </a>
           </li>
         </ul>
+        <button
+          class="mt-3 px-12 py-2 bg-primary text-white font-semibold rounded-md w-full shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300"
+        >
+          Currículum
+        </button>
       </div>
     </div>
+
     <iframe
       src="https://my.spline.design/particles-a315ecf81b2793f51b19320584572ddf/"
       frameborder="0"
@@ -111,19 +116,145 @@ const goToProject = (projectId) => {
     ></iframe>
   </section>
 
-  <section class="text-white px-8 md:px-48 py-12 md:py-24">
-    <header>
-      <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-4 text-center md:text-start">Resumen</h2>
-      <p data-aos="fade-in">
-        Soy ingeniero en sistemas computacionales con experiencia en desarrollo frontend utilizando
-        Vue.js y TypeScript. También cuento con habilidades en backend, trabajando con tecnologías
-        como Python y PHP, lo que me permite desarrollar soluciones completas y funcionales.
-      </p>
+  <section class="text-white px-8 md:px-64 pt-12 md:pt-24">
+    <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-white font-bold">Proyectos</h2>
+    <CarouselComponent />
+    <div class="flex justify-center mt-8 border-b border-gray-800 pb-12 md:pb-24">
+      <button
+        class="px-12 py-2 bg-primary text-white font-semibold rounded-md shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300"
+      >
+        Ver más proyectos
+      </button>
+    </div>
+  </section>
+
+  <section class="text-white px-8 md:px-64 pt-12 md:pt-24">
+    <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-white font-bold">Educación</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 border-b border-gray-800 pb-12 md:pb-24"
+    >
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+      >
+        <figure>
+          <img
+            src="https://res.cloudinary.com/djfokdod6/image/upload/v1738026381/d90b2509-4e75-4121-bf7c-b3ae9aac75c0.png"
+            alt=""
+            class="w-full h-48 object-cover"
+          />
+        </figure>
+        <figcaption class="p-3 flex-1 flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">
+            Ingeniería en sistemas computacionales
+          </h3>
+          <p class="text-gray-600 text-sm">2024</p>
+          <p class="text-gray-600 text-sm">UACAM</p>
+        </figcaption>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-delay="200"
+        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+      >
+        <figure>
+          <img
+            src="https://res.cloudinary.com/djfokdod6/image/upload/v1738026521/49c8cd05-0f83-4e49-9dc9-6e3c28ceafdd.png"
+            alt=""
+            class="w-full h-48 object-cover"
+          />
+        </figure>
+        <figcaption class="p-3 flex-1 flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">Vue.js: De cero a experto</h3>
+          <p class="text-gray-600 text-sm">2024</p>
+          <p class="text-gray-600 text-sm">Udemy</p>
+        </figcaption>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-delay="300"
+        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+      >
+        <figure>
+          <img
+            src="https://res.cloudinary.com/djfokdod6/image/upload/v1738026521/49c8cd05-0f83-4e49-9dc9-6e3c28ceafdd.png"
+            alt=""
+            class="w-full h-48 object-cover"
+          />
+        </figure>
+        <figcaption class="p-3 flex-1 flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">
+            Desarrollo Web Desde Cero: HTML:5, CSS3 y Js
+          </h3>
+          <p class="text-gray-600 text-sm">2024</p>
+          <p class="text-gray-600 text-sm">Udemy</p>
+        </figcaption>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-delay="400"
+        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+      >
+        <figure>
+          <img
+            src="https://res.cloudinary.com/djfokdod6/image/upload/v1738026521/49c8cd05-0f83-4e49-9dc9-6e3c28ceafdd.png"
+            alt=""
+            class="w-full h-48 object-cover"
+          />
+        </figure>
+        <figcaption class="p-3 flex-1 flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">
+            Diseño UI: diseño visual y diseño de interfaz con Figma
+          </h3>
+          <p class="text-gray-600 text-sm">2024</p>
+          <p class="text-gray-600 text-sm">Udemy</p>
+        </figcaption>
+      </div>
+      <div
+        data-aos="fade-up"
+        data-aos-delay="500"
+        class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+      >
+        <figure>
+          <img
+            src="https://res.cloudinary.com/djfokdod6/image/upload/v1738029491/34736600-4490-4667-94e3-e9eca543374b.png"
+            alt=""
+            class="w-full h-48 object-fit"
+          />
+        </figure>
+        <figcaption class="p-3 flex-1 flex flex-col justify-between">
+          <h3 class="text-lg font-semibold text-gray-800 mb-1">English for IT 1</h3>
+          <p class="text-gray-600 text-sm">2025</p>
+          <p class="text-gray-600 text-sm">CISCO</p>
+        </figcaption>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-white px-8 md:px-64 pt-12 md:pt-24">
+    <header class="mb-6">
+      <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-center md:text-start font-bold">Resumen</h2>
     </header>
-    <main class="md:mt-16 mt-8">
+    <p data-aos="fade-in" class="border-b border-gray-800 pb-12 md:pb-24">
+      Soy ingeniero en sistemas computacionales con experiencia en desarrollo frontend,
+      especializado en Vue.js y familiarizado con TypeScript. Me apasiona crear interfaces
+      intuitivas y funcionales que mejoren la experiencia del usuario. Además, cuento con
+      habilidades en desarrollo backend, trabajando con tecnologías como Python y PHP, lo que me
+      permite abordar proyectos de manera integral, desde el diseño de la interfaz hasta la
+      implementación de la lógica del servidor. Estoy comprometido con la calidad del código y la
+      colaboración en equipo para entregar soluciones robustas y efectivas.
+    </p>
+  </section>
+
+  <section class="text-white px-8 md:px-64 py-12 md:py-24 border-b border-gray-800 pb-12 md:pb-24">
+    <main class="md:mt-16 mt-8 text-white">
+      <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-center md:text-start font-bold">
+        Tecnologías
+      </h2>
       <ul grid grid-cols-3>
         <li class="grid grid-cols-5" data-aos="fade-up">
-          <div class="md:col-span-2 col-span-5"><span class="text-primary">Frontend</span></div>
+          <div class="md:col-span-2 col-span-5"><span class="">Frontend</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
             <ul class="text-xl flex flex-wrap gap-5 py-6">
               <li>Vue</li>
@@ -135,7 +266,7 @@ const goToProject = (projectId) => {
           </div>
         </li>
         <li class="grid grid-cols-5 md:mt-0 mt-4" data-aos="fade-up">
-          <div class="col-span-2"><span class="text-primary">Backend</span></div>
+          <div class="col-span-2"><span class="">Backend</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
             <ul class="text-xl flex flex-wrap gap-5 py-6">
               <li>Python</li>
@@ -146,7 +277,7 @@ const goToProject = (projectId) => {
           </div>
         </li>
         <li class="grid grid-cols-5 md:mt-0 mt-4" data-aos="fade-up">
-          <div class="col-span-2"><span class="text-primary">Herramientas</span></div>
+          <div class="col-span-2"><span class="">Herramientas</span></div>
           <div class="md:col-span-3 col-span-5 border-b border-gray-800">
             <ul class="text-xl flex flex-wrap gap-5 py-6">
               <li>Git</li>
@@ -159,114 +290,8 @@ const goToProject = (projectId) => {
       </ul>
     </main>
   </section>
-  <!--
-  <section class="text-white px-16 py-24 bg-bgsecondary hidden md:block">
-    <header>
-      <h2 id="" data-aos="fade-in" class="text-3xl blur-sm-ao text-center">Proyectos</h2>
-    </header>
-    <main class="mt-16 grid grid-cols-5 h-full">
-      <div class="md:col-span-2 flex h-[720px] mr-24 items-center">
-        <transition
-          name="fade"
-          enter-active-class="transition-opacity duration-500 ease-in-out"
-          leave-active-class="transition-opacity duration-500 ease-in-out"
-          enter-from-class="opacity-0 translate-y-4"
-          enter-to-class="opacity-100 translate-y-0"
-          leave-from-class="opacity-100 translate-y-0"
-          leave-to-class="opacity-0 translate-y-4"
-        >
-          <div v-if="title">
-            <CardProjectsHome
-              :title="title"
-              :description="description"
-              :images="images"
-              :controls="false"
-            />
-          </div>
-        </transition>
-      </div>
 
-      <div class="col-span-3 self-center">
-        <ul class="space-y-12 text-6xl lista">
-          <li
-            data-aos="fade-up"
-            class="item transition-all duration-300 ease-in-out md:text-start text-center"
-          >
-            <button
-              @mouseover="switchData('FisioLab')"
-              @mouseleave="switchData('')"
-              @click="goToProject(0)"
-              class=""
-            >
-              FisioLabs
-            </button>
-          </li>
-          <li
-            data-aos="fade-up"
-            class="item transition-all duration-300 ease-in-out md:text-start text-center"
-          >
-            <button
-              @mouseover="switchData('General10')"
-              @mouseleave="switchData('')"
-              @click="goToProject(1)"
-              class=""
-            >
-              General10
-            </button>
-          </li>
-          <li
-            data-aos="fade-up"
-            class="item transition-all duration-300 ease-in-out md:text-start text-center"
-          >
-            <button
-              @mouseover="switchData('WriteScore')"
-              @mouseleave="switchData('')"
-              @click="goToProject(2)"
-              class=""
-            >
-              Habitify - Clon
-            </button>
-          </li>
-          <li
-            data-aos="fade-up"
-            class="item transition-all duration-300 ease-in-out md:text-start text-center"
-          >
-            <button @mouseover="switchData('WriteScore')" @mouseleave="switchData('')" class="">
-              WriteScore
-            </button>
-          </li>
-        </ul>
-      </div>
-    </main>
-  </section>
-  -->
-  <section class="py-16 px-8 md:px-48 lg:hidden text-white">
-    <h2 id="" data-aos="fade-in" class="text-3xl blur-sm-ao mb-8 text-center">Proyectos</h2>
-    <div class="lg:grid grid-cols-3 gap-4">
-      <div
-        v-for="([key, project], index) in projects"
-        :key="key"
-        :id="'project-' + key"
-        class="mb-4"
-        data-aos="fade-up"
-      >
-        <button @click="goToProject(index)">
-          <CardProjectsHome
-            :title="project.title"
-            :description="project.description"
-            :images="project.images.map((image) => image.url)"
-            :controls="false"
-          />
-        </button>
-      </div>
-    </div>
-  </section>
-  <section class="hidden lg:block  lg:px-48 bg-gradient-to-b from-black to-primary/30 py-12">
-    <h2 data-aos="fade-in" class="text-3xl blur-sm-ao mb-4 text-start md:text-center text-white">Proyectos</h2>
-    <CarouselComponent data-aos="fade-up"/>
-  </section>
-
-
+  <section></section>
 </template>
 <style scoped>
 .lista:hover .item:not(:hover) {

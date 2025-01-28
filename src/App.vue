@@ -32,9 +32,7 @@ onMounted(() => {
   </aside>
   -->
   <div class="blur-sm-ao" data-aos="fade-in">
-    <div class="">
       <RouterView />
-    </div>
   </div>
 
 </template>
