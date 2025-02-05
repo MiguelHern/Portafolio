@@ -1,17 +1,53 @@
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+
+const route = useRoute()
+const router = useRouter()
 const isMenuOpen = ref(false)
+
+const goToProject = (projectId) => {
+  // Cambiar la URL sin recargar la página
+  router.push(`/portfolio#project-${projectId}`)
+  console.log(projectId)
+}
+
 
 onMounted(() => {
   if (isMenuOpen.value) {
     document.body.classList.add('overflow-hidden')
   }
+  // Ejecutar scroll si hay un hash en la URL al montar el componente
+  scrollToSection()
 })
 
 onUnmounted(() => {
   document.body.classList.remove('overflow-hidden')
 })
+
+// Función para hacer scroll hacia la sección correspondiente
+const scrollToSection = () => {
+  const hash = route.hash
+  if (hash) {
+    const sectionId = hash.substring(1) // Eliminar el "#" del hash
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
+}
+
+// Ejecutar scroll cuando el hash en la URL cambie
+watch(
+  () => route.hash,
+  () => {
+    scrollToSection()
+  },
+)
 
 const closeModal = () => {
   isMenuOpen.value = false
@@ -49,26 +85,36 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
       <div>
         <ul class="space-y-2 lista">
           <li class=" ">
-            <RouterLink class="item transition-all duration-300 ease-in-out" to="/" @click="openMenu"
+            <RouterLink
+              class="item transition-all duration-300 ease-in-out"
+              to="/"
+              @click="openMenu"
               >Inicio</RouterLink
             >
           </li>
           <li class="">
-            <RouterLink class="item transition-all duration-300 ease-in-out" to="/portfolio" @click="openMenu"
+            <RouterLink
+              class="item transition-all duration-300 ease-in-out"
+              to="/portfolio"
+              @click="openMenu"
               >Portafolio</RouterLink
             >
           </li>
           <li>
-            <button class="item transition-all duration-300 ease-in-out" @click="closeModal">LinkedIn</button>
+            <button class="item transition-all duration-300 ease-in-out" @click="closeModal">
+              LinkedIn
+            </button>
           </li>
           <li>
-            <button class="item transition-all duration-300 ease-in-out" @click="closeModal">Github</button>
+            <button class="item transition-all duration-300 ease-in-out" @click="closeModal">
+              Github
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </div>
-  <nav class="fixed top-0 z-50 w-full" id="" data-aos="fade-down" >
+  <nav class="fixed top-0 z-50 w-full" id="" data-aos="fade-down">
     <!--lign-items: center;
 
         border-radius: 1rem;
@@ -97,7 +143,6 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
       </ul>
     </div>
   </nav>
-
 
   <button
     @click="openMenu"
@@ -130,6 +175,25 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
     </svg>
   </button>
+
+  <div class="fixed z-50 right-4 text-white" v-if="route.path === '/portfolio'">
+    <section class="bg-crema rounded-md dark:text-gray-800">
+      <div class="container max-w-5xl px-2 py-4 mx-auto ml-4">
+        <div
+          class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-300"
+        >
+          <div
+            v-for="(item, index) in projects"
+            :key="index"
+            @click="goToProject(index)"
+            class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-primary"
+          >
+            <h3 class="text-xl font-semibold tracking-wide">{{ index + 1 }}</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>
@@ -138,9 +202,5 @@ const dynamicClass = computed(() => (isMenuOpen.value ? 'translate-y-0' : '-tran
   backdrop-filter: blur(20px);
   background-color: rgba(120, 120, 120, 0.35);
   -webkit-tap-highlight-color: transparent;
-}
-
-.lista:hover .item:not(:hover) {
-  @apply text-white75;
 }
 </style>
